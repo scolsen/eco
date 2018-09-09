@@ -1,11 +1,10 @@
-extern crate cite;
+extern crate eco;
 
-use cite::read_config_file;
+use eco::read_config_file;
 
 fn main() {
-    let r = read_config_file();
-    match r {
-        None => println!("No Config file."),
-        Some(x) => println!("File contains: {}", x),
+    match read_config_file() {
+        Err(e) => println!("No Config file."),
+        Ok(x) => println!("File contains: {}", x),
     }
 }
