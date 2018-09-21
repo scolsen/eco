@@ -1,10 +1,10 @@
 extern crate eco;
 
-use eco::read_config_file;
+use eco::config::reader::parse_config;
 
 fn main() {
-    match read_config_file() {
-        Err(e) => println!("No Config file."),
-        Ok(x) => println!("File contains: {}", x),
+    match parse_config() {
+        Err(_e) => println!("No Config file."),
+        Some(x) => println!("File contains: {}", x),
     }
 }
